@@ -1,11 +1,11 @@
 # Use an official Node.js runtime as a parent image
-FROM node:14-alpine
+FROM node:18-alpine
 
 # Set the working directory to /usr/src/app
 WORKDIR /usr/src/app
 
 # Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
+COPY package*.json 
 
 # Install npm dependencies with legacy peer deps
 
@@ -15,7 +15,7 @@ RUN npm install --legacy-peer-deps
 COPY . .
 
 # Build the app
-RUN npm rebuild node-sass
+
 RUN npm run build
 
 # Expose port 8081 for the app to listen on
