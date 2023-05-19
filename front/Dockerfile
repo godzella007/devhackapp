@@ -1,5 +1,5 @@
 # Use an official Node.js runtime as a parent image
-FROM node:18-alpine
+FROM node:14-alpine
 
 # Set the working directory to /usr/src/app
 WORKDIR /usr/src/app
@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Install npm dependencies with legacy peer deps
-RUN npm cache clear --force
+
 RUN npm install --legacy-peer-deps
 
 # Copy the current directory contents into the container at /usr/src/app
